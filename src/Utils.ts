@@ -22,13 +22,9 @@ class Utils {
     }
 
     public static async isWorker(id: number) : Promise<boolean> {
-        console.log("in isWorker");
-        console.log(config.admins.includes(id));
-        console.log(Object.keys(config.workers).includes(id.toString()));
         if (config.admins.includes(id) || Object.keys(config.workers).includes(id.toString())) return true;
-        console.log("here2");
+        
         const user = await bot.getChatMember(config.group_id, id);
-        console.log(user);
         return user.status === "left" ? false : true;
     }
 
@@ -64,4 +60,5 @@ class Utils {
 
 
 export default Utils;
+
 
