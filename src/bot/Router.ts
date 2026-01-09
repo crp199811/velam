@@ -27,10 +27,9 @@ class Router {
         return data;
     }
 
-    private static async middleware(id: number) : Promise<boolean>{  
-        console.log(id);
+    private static async middleware(id: number) : Promise<boolean>{ 
         if (!await Utils.isWorker(id)) return false;
-        console.log("here");
+        
         if (!(await Database.getUser({ id }))) await Database.createUser({ id });
         return true;
     }
@@ -107,4 +106,5 @@ class Router {
 }
 
 export default Router;
+
 
