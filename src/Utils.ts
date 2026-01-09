@@ -29,7 +29,7 @@ class Utils {
         console.log("here2");
         const user = await bot.getChatMember(config.group_id, id);
         console.log(user);
-        return Boolean(user);
+        return user.status === "left" ? false : true;
     }
 
     public static createNavigateButtons(n: number, callback_data: string, totalLength: number) : InlineKeyboardButton[]{
@@ -64,3 +64,4 @@ class Utils {
 
 
 export default Utils;
+
